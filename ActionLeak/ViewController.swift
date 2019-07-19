@@ -27,8 +27,8 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showChild" , let s = segue.destination as? ViewController2 {
-            s.action.executionObservables.switchLatest().debug("segue subscription").subscribe(onNext:{_ in
+        if segue.identifier == "showChild" , let detail = segue.destination as? ViewController2 {
+            detail.action.executionObservables.switchLatest().debug("segue subscription").subscribe(onNext:{_ in
                 print("subscriber")
             }).disposed(by: bag)
         }
